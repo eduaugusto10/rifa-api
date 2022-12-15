@@ -21,6 +21,9 @@ export class RifaEntity {
     @Column("varchar", { length: '20' })
     cpf: string
 
+    @Column({ type: "integer" })
+    order: number
+
     @Column("varchar", { length: '20' })
     pago: string
 

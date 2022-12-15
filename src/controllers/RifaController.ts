@@ -14,14 +14,15 @@ export class RifaController {
     }
     async update(req: Request, res: Response) {
         const { id } = req.params
-        const { name, email, cpf, phone, status } = req.body
+        const { name, email, cpf, phone, status, order } = req.body
 
         await rifaRepository.update(parseInt(id), {
             name,
             email,
             cpf,
             phone,
-            status
+            status,
+            order
         })
 
         return res.send()
