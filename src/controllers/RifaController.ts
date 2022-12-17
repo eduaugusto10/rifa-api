@@ -38,4 +38,14 @@ export class RifaController {
         }
         return res.send()
     }
+
+    async bought(req: Request, res: Response) {
+        const { order } = req.params
+
+        const orderNum = Number(order)
+        if (orderNum > 0) {
+            await rifaRepository.bought(Number(orderNum))
+        }
+        return res.send()
+    }
 }
