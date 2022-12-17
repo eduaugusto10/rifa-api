@@ -6,7 +6,7 @@ export const rifaRepository = AppDataSource.getRepository(RifaEntity).extend({
         this.createQueryBuilder()
             .update()
             .set({
-                status: 'Pago'
+                status: 'Vendido'
             })
             .where("order=:order", { order })
             .execute()
