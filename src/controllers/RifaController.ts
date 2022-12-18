@@ -2,14 +2,16 @@ import { rifaRepository } from "../repositories/RifaRepository";
 import { Request, Response } from "express";
 
 export class RifaController {
-    async store(req: Request, res: Response) {
-        return
-    }
+
     async getByNumber(req: Request, res: Response) {
-        return
+        const { email } = req.params
+        const order = await rifaRepository.getOrderByEmail(email)
+
+
+        return res.json(order)
     }
     async getAll(req: Request, res: Response) {
-        const numbers = await rifaRepository.find()
+        const numbers = await rifaRepository.getAllNumber()
         return res.json(numbers)
     }
     async update(req: Request, res: Response) {
@@ -27,9 +29,7 @@ export class RifaController {
 
         return res.send()
     }
-    async delete(req: Request, res: Response) {
-        return
-    }
+
     async generated(req: Request, res: Response) {
         const { number, rifa } = req.body
 

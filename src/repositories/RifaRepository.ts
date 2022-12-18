@@ -10,5 +10,20 @@ export const rifaRepository = AppDataSource.getRepository(RifaEntity).extend({
             })
             .where("order=:order", { order })
             .execute()
+    },
+    getAllNumber() {
+        return this.createQueryBuilder()
+            .select('id')
+            .addSelect('name')
+            .addSelect('status')
+            .getRawMany()
+    },
+    getOrderByEmail(email: string) {
+        return this.createQueryBuilder()
+            .select('id')
+            .addSelect('name')
+            .addSelect('status')
+            .where('email=:email', { email })
+            .getRawMany()
     }
 })
